@@ -1,0 +1,245 @@
+Software Requirements Specification
+
+for
+
+Iditarod Wireless Usage
+
+
+
+Version 0.0
+Prepared by Kyle Shepherd
+General Communication Inc.
+
+ 
+Table of Contents
+1.	Introduction	
+1.1	Purpose	
+1.2	Document Conventions	
+1.3	Intended Audience and Reading Suggestions	
+1.4	Product Scope	
+2.	Overall Description	
+2.1	Product Functions	
+2.2	User Classes and Characteristics	
+2.3	Operating Environment	
+2.4	Design and Implementation Constraints	
+2.5	Assumptions and Dependencies	
+3.	External Interface Requirements	
+3.1	User Interfaces	
+3.2	Hardware Interfaces	
+3.3	Software Interfaces	
+3.4	Communications Interfaces	
+4.	System Features	
+4.1	Usage by Cell Tower	
+4.1.1	Description and Priority	
+4.1.2	Stimulus/Response Sequences	
+4.1.3	Functional Requirements	
+4.2	Usage by Date	
+4.2.1	Description and Priority	
+4.2.2	Stimulus/Response Sequences	
+4.2.3	Functional Requirements	
+4.3	Musher Progress	
+4.3.1	Description and Priority	
+4.3.2	Stimulus/Response Sequences	
+4.3.3	Functional Requirements	
+5.	Other Nonfunctional Requirements	
+5.1 	Performance Requirements	
+
+
+
+1.	   Introduction
+
+
+1.1	Purpose
+The purpose of this project is to create a dynamic analytical tool, interactive to the user,
+to determine whether wireless cell tower usage along the Iditarod path increases during the
+race. This project will establish, by cell tower, the change in usage as mushers arrive at 
+checkpoints. 
+
+1.2	Document Conventions
+•	Iditarod Wireless Usage will be referred to as “IWU.”
+•	Dashboard is a collection of graphical visualizations. 
+
+1.3	Intended Audience and Reading Suggestions
+IWU is intended for specifically for Data Analysts and Engineers in the telecommunications
+field, however, an educated reader will be able to interpret the findings. 
+
+1.4	Product Scope 
+IWU will be a visual analytical tool, based in the software Tableau, that blends Iditarod
+race data to GCI’s wireless usage data to create a series of visualizations that will be
+used to infer changes in the network during the race. This tool will be able to track 
+peak usage periods for specific cell towers along the Iditarod path, a vital piece of 
+information to know in order to determine if the tower’s traffic is close to its max 
+capacity. The goal of IWU is to have an analytical tool that has a large enough range 
+of complexity that a reasonably educated person to an engineer can interpret useful 
+information from the project.
+
+
+2.	Overall Description
+
+
+2.1	Product Functions
+IWU will have four main functions:
+•	Blend public Iditarod data with GCI’s wireless usage data
+•	Scrub wireless usage data of identifying metadata fields 
+•	Plot relevant cell towers along Iditarod path.
+•	Have two main user driven dashboards to inspect:
+o	Usage during the race. 
+o	Race progress, per musher. 
+
+2.2	User Classes and Characteristics
+There are three distinct user classes that will interact with IWU. Experts in the 
+telecommunication field, educated reader, and casual reader. All users are expected to 
+have basic experience with operation of a computer. 
+
+An expert in the telecommunication field is expected to be able to withdraw useful 
+information about network load changes. They should have an extensive understanding of
+graphical visualizations. 
+
+Educated readers pertains to someone who can interpret more advanced data visualizations. 
+Should be able to understand the significance of network load change results from IWU. 
+
+Casual readers pertain to someone who can reasonable absorb useful statistics from IWU 
+and the impact of the Iditarod on Alaska’s rural cell network. 
+
+2.3	Operating Environment
+All data will be manipulated using the software Alteryx. IWU will run within the software 
+Tableau. Tableau can run on Windows 7 and newer, or OSX 10.10 or newer. IWU will also be 
+available online and will be supported through Chrome on Windows, mac, and Android 4.4 or
+later; Apple Safari on Mac and iOS 8.x or later; Internet Explorer 11 or newer; Mozilla 
+Firefox 3.x or newer on Windows and Mac; as well as Tableau Mobile iOS and Android apps.
+ 
+2.4	Design and Implementation Constraints
+Access to [INSERT DATABASE HERE, TBD] will be needed to retrieve wireless usage data for 
+dates corresponding to the 2016 Iditarod. Tableau and Alteryx will be needed to achieve
+the desired end product. Once the product is complete, no further maintenance will be 
+upheld. 
+
+2.5	Assumptions and Dependencies
+It is assumed a computer with minimum 3.0 GHz of processing power and at least 8GB of
+RAM with Tableau and Alteryx licenses associated with that computer will be provided by 
+GCI, on a temporary basis. At which, GCI has the right to reclaim at any time. This 
+project is dependent on having valid Tableau and Alteryx licenses throughout the extent 
+of the project.
+
+
+3.	 External Interface Requirements
+
+
+3.1	User Interfaces
+	The user interface will be driven and built in Tableau. Each dashboard will be 
+interactive to the user. User’s will have drop down menus to change parameters associated 
+with that dashboard. For example, the parameters will range from selecting a cell site to 
+analyze the traffic through that tower throughout each day of the Iditarod, to selecting 
+a musher and track his/her progress through the race. 
+
+As specified above, the software Tableau is the user interface, however, a license is not 
+required to interact with the tool. Users will be able to access the tool via the Internet
+ where Tableau Server implements the user interface. 
+
+3.2	Hardware Interfaces
+Supported devices are computers running Windows 7 or newer, OSX 10.10 or newer. 
+Mobile devices running iOS or Android. 
+3.3	Software Interfaces
+	Wireless usage data will be retrieved from SQL database, 
+[INSERT DATABASE HERE, TBD], using Alteryx. Data will be scrubbed clean of identifying 
+features and saved into a .tde (Tableau Data Extract) format. Public Iditarod data will
+be pulled from an online source [INSERT IDITAROD DATA SOURCE URL HERE]. Alteryx will be 
+used to blend both data sources in preparation for graphical visualizations in Tableau.
+IWU will be available to access via web browsers such as: Chrome, Safari, Internet Explorer,
+and Firefox. 
+
+3.4	Communications Interfaces
+	Internet access is required to access the online version. Furthermore, if one has 
+a license of Tableau, a downloadable version will be available via the same site that IWU 
+will be stored on. 
+
+
+
+4.	System Features
+
+4.1	Usage by Cell Tower
+4.1.1	Description and Priority
+This feature will allow the user to select a desired cell site (by name) and have displayed:
+ the usage every day of the race at that specific tower; the number of mushers checked-in 
+to the nearest checkpoint for each corresponding day; a percent increase to an average usage
+ at that cell tower; and the number of connections to that cell tower by people each 
+corresponding day. This feature is of high priority.
+
+4.1.2	Stimulus/Response Sequences
+A user will select a cell tower name from a drop down menu, while the tool will auto-update
+ visualizations to display what the user requested. 
+
+4.1.3	Functional Requirements
+Data must have corresponding fields to be able to blend together. Dynamic updating is 
+required to return data that only corresponds to the cell tower the user has selected. 
+Each record in the dataset must be found in order to achieve an accurate sub-set of data. 
+
+
+4.2		Usage by Date
+4.2.1	Description and Priority
+	This feature will provide the user a way to track usage across every cell tower 
+during each day of the race. This will provide the total usage for each day; display the 
+top cell tower (in terms of total usage) for that day; the most visited (in terms of 
+mushers checked-in) checkpoint for that day; and a percent increase in traffic from the 
+previous day. 
+
+4.2.2	Stimulus/Response Sequences
+The user will select the dashboard “Usage by Date” to view the associated visualizations.
+Each visualization will be interactive and contain tooltips to display further information 
+about that data point. Tooltips will be activated by the user hovering their cursor over 
+the data point in question. This is a built-in feature in Tableau. 
+
+4.2.3	Functional Requirements
+Same as section 4.1.3
+
+4.3		Musher Progress
+4.3.1	Description and Priority
+This feature is guided more towards a casual user to track progress of mushers as the 
+race proceeds. Users will have the ability to see which mushers were leading for a 
+specific day. Along with their total distance traveled, time of check-in/check-outs at 
+checkpoints, what checkpoints they hit when, and the overall winner. Users will also 
+have the ability to track any registered musher’s progress that they wish, not just the 
+leading mushers.
+
+4.3.2	Stimulus/Response Sequences
+ Users will select the dashboard “Musher Progress” to view the corresponding tools. 
+Each visualization will be connected, functionally. If a user would like to track 
+“John Doe’s” progress, every visualization must dynamically update to show information 
+for “John Doe.” Users will have drop down boxes to select a musher as well as selecting 
+a checkpoint to see the “standings” for that checkpoint. Once a user selects the desired
+ input, outputs should only contain data pertaining to that musher/checkpoint.
+
+4.3.3	Functional Requirements
+
+Same as 4.1.3
+
+5.	Other Nonfunctional Requirements
+
+5.1 	Security Requirements
+	All data must be cleaned of any identifying information. 
+Original dataset cannot be released, however, once the dataset has been parsed
+ though Alteryx, all personal information will have been scrubbed from the set. 
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Appendix A: Glossary
+
+Appendix B: Analysis Models
+
+Appendix C: TBD List
